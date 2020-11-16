@@ -44,14 +44,6 @@ func abc183C() {
     print(answer)
 }
 
-private func pow(_ lhs: Int, _ rhs: Int) -> Double {
-    var results: Double = 0
-    for _ in 1...rhs {
-        results *= Double(lhs)
-    }
-    return results
-}
-
 private func permutations(of values: [Int]) -> [[Int]] {
     if values.count <= 1 {
         return [values]
