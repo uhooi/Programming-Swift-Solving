@@ -14,6 +14,7 @@
 		4BCB3E072562487D0015BDDB /* D_WaterHeater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB3E062562487D0015BDDB /* D_WaterHeater.swift */; };
 		4BCB3E0A256248F90015BDDB /* E_QueenOnGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB3E09256248F90015BDDB /* E_QueenOnGrid.swift */; };
 		4BCB3E0D2562492D0015BDDB /* F_Confluence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB3E0C2562492D0015BDDB /* F_Confluence.swift */; };
+		4BCB3E1225624BB50015BDDB /* B_MixJuice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB3E1125624BB50015BDDB /* B_MixJuice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,7 @@
 		4BCB3E062562487D0015BDDB /* D_WaterHeater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = D_WaterHeater.swift; sourceTree = "<group>"; };
 		4BCB3E09256248F90015BDDB /* E_QueenOnGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_QueenOnGrid.swift; sourceTree = "<group>"; };
 		4BCB3E0C2562492D0015BDDB /* F_Confluence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F_Confluence.swift; sourceTree = "<group>"; };
+		4BCB3E1125624BB50015BDDB /* B_MixJuice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = B_MixJuice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		4BCB3DF425623C4B0015BDDB /* ABC */ = {
 			isa = PBXGroup;
 			children = (
+				4BCB3E1025624B8C0015BDDB /* 171 */,
 				4BCB3DF525623C530015BDDB /* 183 */,
 			);
 			path = ABC;
@@ -94,6 +97,14 @@
 				4BCB3E0C2562492D0015BDDB /* F_Confluence.swift */,
 			);
 			path = 183;
+			sourceTree = "<group>";
+		};
+		4BCB3E1025624B8C0015BDDB /* 171 */ = {
+			isa = PBXGroup;
+			children = (
+				4BCB3E1125624BB50015BDDB /* B_MixJuice.swift */,
+			);
+			path = 171;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +166,7 @@
 			files = (
 				4BCB3E072562487D0015BDDB /* D_WaterHeater.swift in Sources */,
 				4BCB3E0A256248F90015BDDB /* E_QueenOnGrid.swift in Sources */,
+				4BCB3E1225624BB50015BDDB /* B_MixJuice.swift in Sources */,
 				4BCB3DFD25623DA10015BDDB /* B_Billiards.swift in Sources */,
 				4BCB3E0025623E090015BDDB /* C_Travel.swift in Sources */,
 				4BCB3DED25623C3E0015BDDB /* main.swift in Sources */,
