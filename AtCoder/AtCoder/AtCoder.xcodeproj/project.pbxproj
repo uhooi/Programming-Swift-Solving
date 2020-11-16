@@ -16,6 +16,7 @@
 		4BCB3E0D2562492D0015BDDB /* F_Confluence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB3E0C2562492D0015BDDB /* F_Confluence.swift */; };
 		4BCB3E1225624BB50015BDDB /* B_MixJuice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB3E1125624BB50015BDDB /* B_MixJuice.swift */; };
 		4BCB3E1725624CC10015BDDB /* A_Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB3E1625624CC10015BDDB /* A_Box.swift */; };
+		4BCB3E1C25624DB80015BDDB /* A_WelcomeToAtCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCB3E1B25624DB80015BDDB /* A_WelcomeToAtCoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,7 @@
 		4BCB3E0C2562492D0015BDDB /* F_Confluence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F_Confluence.swift; sourceTree = "<group>"; };
 		4BCB3E1125624BB50015BDDB /* B_MixJuice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = B_MixJuice.swift; sourceTree = "<group>"; };
 		4BCB3E1625624CC10015BDDB /* A_Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Box.swift; sourceTree = "<group>"; };
+		4BCB3E1B25624DB80015BDDB /* A_WelcomeToAtCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_WelcomeToAtCoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		4BCB3DEB25623C3E0015BDDB /* AtCoder */ = {
 			isa = PBXGroup;
 			children = (
+				4BCB3E1A25624D970015BDDB /* Practice */,
 				4BCB3DF425623C4B0015BDDB /* ABC */,
 				4BCB3DEC25623C3E0015BDDB /* main.swift */,
 			);
@@ -116,6 +119,14 @@
 				4BCB3E1625624CC10015BDDB /* A_Box.swift */,
 			);
 			path = 180;
+			sourceTree = "<group>";
+		};
+		4BCB3E1A25624D970015BDDB /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				4BCB3E1B25624DB80015BDDB /* A_WelcomeToAtCoder.swift */,
+			);
+			path = Practice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 				4BCB3DED25623C3E0015BDDB /* main.swift in Sources */,
 				4BCB3E0D2562492D0015BDDB /* F_Confluence.swift in Sources */,
 				4BCB3DF725623C690015BDDB /* A_ReLU.swift in Sources */,
+				4BCB3E1C25624DB80015BDDB /* A_WelcomeToAtCoder.swift in Sources */,
 				4BCB3E1725624CC10015BDDB /* A_Box.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
