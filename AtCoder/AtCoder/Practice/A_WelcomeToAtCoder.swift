@@ -7,8 +7,6 @@
 
 // https://atcoder.jp/contests/abs/tasks/practice_1
 
-import Foundation
-
 func practiceA() {
     let a = Int(readLine()!)!
     

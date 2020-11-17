@@ -7,8 +7,6 @@
 
 // https://atcoder.jp/contests/abc183/tasks/abc183_d
 
-import Foundation
-
 // TODO: Not started yet
 func abc183D() {
 }

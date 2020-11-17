@@ -7,8 +7,6 @@
 
 // https://atcoder.jp/contests/abc183/tasks/abc183_b
 
-import Foundation
-
 func abc183B() {
     let input = readLine()!.split(separator: " ").map { Double($0)! }
     let sx = input[0]

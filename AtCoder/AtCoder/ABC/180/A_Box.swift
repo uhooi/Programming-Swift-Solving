@@ -7,8 +7,6 @@
 
 // https://atcoder.jp/contests/abc180/tasks/abc180_a
 
-import Foundation
-
 func abc180A() {
     let input = readLine()!.split(separator: " ").map { Int($0)! }
     let n = input[0]
