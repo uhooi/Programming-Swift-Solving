@@ -6,9 +6,4 @@ precondition(ss[0] == "0" || ss[0] == "1")
 precondition(ss[1] == "0" || ss[1] == "1")
 precondition(ss[2] == "0" || ss[2] == "1")
 
-var answer = 0
-for s in ss where s == "1" {
-    answer += 1
-}
-
-print(answer)
+print(ss.filter { $0 == "1" } .count)
