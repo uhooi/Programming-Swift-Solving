@@ -1,9 +1,10 @@
 // https://atcoder.jp/contests/abc171/tasks/abc171_b
 
-let line1 = readLine()!.split(separator: " ").map { Int($0)! }
-let n = line1[0]
-let k = line1[1]
+let nk = readLine()!.split(separator: " ").map { Int($0)! }
+let n = nk[0]
+let k = nk[1]
+precondition(1 <= k && k <= n && n <= 1000)
 
-let line2 = readLine()!.split(separator: " ").map { Int($0)! }
+let pp = readLine()!.split(separator: " ").map { Int($0)! }
 
-print(line2.sorted { $0 < $1 } .prefix(k).reduce(0, +))
+print(pp.sorted().prefix(k).reduce(0, +))
