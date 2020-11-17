@@ -1,0 +1,11 @@
+// https://atcoder.jp/contests/abs/tasks/practice_1
+
+let a = Int(readLine()!)!
+
+let line2 = readLine()!.split(separator: " ").map { Int($0)! }
+let b = line2[0]
+let c = line2[1]
+
+let s = readLine()!
+
+print(a + b + c, s)
