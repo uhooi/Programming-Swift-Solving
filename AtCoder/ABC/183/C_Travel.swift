@@ -36,19 +36,15 @@ for pathway in allPathways {
 print(answer)
 
 private func permutations(of values: [Int]) -> [[Int]] {
-    permutations(of: values[...])
-}
-
-private func permutations(of values: ArraySlice<Int>) -> [[Int]] {
     if values.count <= 1 {
-        return [Array(values)]
+        return [values]
     }
     var results: [[Int]] = []
     for i in values.indices {
         let baseValue = values[i]
-        var values = values
-        values.swapAt(values.indices.lowerBound, i)
-        results += permutations(of: values.dropFirst()).map { [baseValue] + $0 }
+        var excludingBaseValue = values
+        excludingBaseValue.remove(at: i)
+        results += permutations(of: excludingBaseValue).map { [baseValue] + $0 }
     }
     return results
 }
