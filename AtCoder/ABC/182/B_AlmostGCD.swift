@@ -7,7 +7,7 @@ precondition(aa.count == n)
 
 typealias KGCD = (k: Int, gcd: Int)
 var kgcd: KGCD = (k: aa[0], gcd: 0)
-for k in 2...1000 {
+for k in 2...aa.max()! {
     var gcd = 0
     for a in aa where a % k == 0 {
         gcd += 1
