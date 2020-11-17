@@ -46,8 +46,9 @@ private func permutations(of values: ArraySlice<Int>) -> [[Int]] {
     var results: [[Int]] = []
     for i in values.indices {
         let baseValue = values[i]
-        let excludingBaseValue = values[..<i] + values[(i + 1)...]
-        results += permutations(of: excludingBaseValue).map { [baseValue] + $0 }
+        var values = values
+        values.swapAt(values.indices.lowerBound, i)
+        results += permutations(of: values.dropFirst()).map { [baseValue] + $0 }
     }
     return results
 }
