@@ -9,7 +9,6 @@ precondition(50 <= x && x <= 20000)
 precondition(x % 50 == 0)
 
 var answer = 0
-var fiveHundredCount = a
 for fiveHundredYenCount in 0...a {
     for oneHundredYenCount in 0...b {
         for fiftyYenCount in 0...c {
