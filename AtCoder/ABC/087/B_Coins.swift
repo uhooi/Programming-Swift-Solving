@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abs/tasks/abc087_b
 
-// FIXME: WA
 let a = Int(readLine()!)!
 precondition(0 <= a && a <= 50)
 let b = Int(readLine()!)!
@@ -14,12 +13,14 @@ precondition(x % 50 == 0)
 
 var answer = 0
 var fiveHundredCount = a
-where fiveHundredCount > 0 {
-    if x % 500 == 0 && 500 * fiveHundredCount >= x {
-        fiveHundredCount -= 1
-        answer += 1
+for fiveHundredYenCount in 0...a {
+    for oneHundredYenCount in 0...b {
+        for fiftyYenCount in 0...c {
+            let total = 500 * fiveHundredYenCount + 100 * oneHundredYenCount + 50 * fiftyYenCount
+            if total == x {
+                answer += 1
+            }
+        }
     }
 }
-
-var oneHundredCount = b
-var fiftyCount = c
+print(answer)
