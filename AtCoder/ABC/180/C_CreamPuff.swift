@@ -2,14 +2,23 @@
 
 import Foundation
 
-// FIXME: TLE
 let n = Int(readLine()!)!
 precondition(1 <= n && Double(n) <= pow(10, 12))
 
-let secondLargest = n % 2 == 0 ? n / 2 : (n - 1) / 2
-for i in 1...secondLargest {
+var secondHalfs: [Int] = []
+for i in 1...n {
+    let secondHalf = n / i
+    if secondHalf < i {
+        break
+    }
     if n % i == 0 {
         print(i)
+        if secondHalf != i {
+            secondHalfs.insert(secondHalf, at: 0)
+        }
     }
 }
-print(n)
+
+for i in secondHalfs {
+    print(i)
+}
