@@ -5,12 +5,15 @@ import Foundation
 let n = Int(readLine()!)!
 precondition(1 <= n && Double(n) <= pow(10, 12))
 
-var answers: Set<Int> = []
-for i in 1...(Int(floor(sqrt(Double(n))))) where n % i == 0 {
-    answers.insert(i)
-    answers.insert(n / i)
+for i in divisors(of: n) {
+    print(i)
 }
 
-for i in answers.sorted() {
-    print(i)
+private func divisors(of value: Int) -> [Int] {
+    var divisors: Set<Int> = []
+    for i in 1...(Int(floor(sqrt(Double(value))))) where value % i == 0 {
+        divisors.insert(i)
+        divisors.insert(value / i)
+    }
+    return divisors.sorted()
 }
