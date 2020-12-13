@@ -1,19 +1,19 @@
 // https://atcoder.jp/contests/abc185/tasks/abc185_c
 
-// FIXME: RE
+// FIXME: WA
 import Foundation
-
+ 
 let l = Int(readLine()!)!
 precondition(12 <= l && l <= 200)
-let answer = l == 12 ? 1 : combinationWays(m: l - 1, n: 11)
+ 
+let answer: Int
+switch l {
+case 12:
+    answer = 1
+case 13...:
+    answer = ((l - 11)...(l - 1)).reduce(1, *) / (2...11).reduce(1, *)
+default:
+    preconditionFailure("`l` is an invalid value.")
+}
 precondition(Double(answer) < pow(2, 63))
 print(answer)
-
-private func combinationWays(m: Int, n: Int) -> Int {
-    permutationWays(of: m) / (permutationWays(of: n) * permutationWays(of: m - n))
-}
-
-private func permutationWays(of value: Int) -> Int {
-    precondition(value > 0)
-    return (1...value).reduce(1, *)
-}
