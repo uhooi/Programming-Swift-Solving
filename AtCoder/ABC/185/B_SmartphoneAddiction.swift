@@ -1,3 +1,5 @@
+// https://atcoder.jp/contests/abc185/tasks/abc185_b
+
 import Foundation
  
 let nmt = readLine()!.split(separator: " ").map { Int($0)! }
