@@ -5,10 +5,16 @@ import Foundation
 let l = Int(readLine()!)!
 precondition(12 <= l && l <= 200)
 
-var answer = 1
-for i in 1...11 {
-    answer *= l - i
-    answer /= i
-}
+let answer = combination(n: l - 1, r: 11)
 precondition(Double(answer) < pow(2, 63))
 print(answer)
+
+private func combination(n: Int, r: Int) -> Int {
+    precondition(n >= r)
+    var result = 1
+    for i in 1...r {
+        result *= n - (i - 1)
+        result /= i
+    }
+    return result
+}
