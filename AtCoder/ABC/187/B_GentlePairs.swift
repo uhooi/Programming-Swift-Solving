@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc187/tasks/abc187_b
 
-// FIXME: WA
 import Foundation
 
 let n = Int(readLine()!)!
@@ -22,7 +21,7 @@ for i in xxyy.indices {
     for j in (i + 1)..<xxyy.count {
         let dy = xxyy[j][1] - xxyy[i][1]
         let dx = xxyy[j][0] - xxyy[i][0]
-        let m = dy / dx
+        let m: Double = Double(dy) / Double(dx)
         if -1 <= m && m <= 1 {
             answer += 1
         }
