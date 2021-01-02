@@ -6,10 +6,11 @@ import Foundation
 let n = Int(readLine()!)!
 precondition(1 <= n && Double(n) <= Double(2) * pow(10, 5))
 
-var ss: [String] = []
+var ssSet: Set<String> = []
 for _ in 1...n {
-    ss.append(readLine()!)
+    ssSet.insert(readLine()!)
 }
+let ss = Array(ssSet)
 precondition(ss.count == n)
 precondition(ss.allSatisfy { 1 <= $0.count && $0.count <= 10 })
 
