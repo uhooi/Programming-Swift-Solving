@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc187/tasks/abc187_c
 
-// FIXME: TLE
 import Foundation
 
 let n = Int(readLine()!)!
@@ -20,15 +19,8 @@ precondition(ssNotExclamationSet.allSatisfy { 1 <= $0.count && $0.count <= 10 })
 precondition(ssExclamationSet.allSatisfy { 1 <= $0.count && $0.count <= 10 })
 
 var answer = "satisfiable"
-for i in ssNotExclamationSet {
-    for j in ssExclamationSet {
-        if i == j {
-            answer = i
-            break
-        }
-    }
-    if answer != "satisfiable" {
-        break
-    }
+for i in ssNotExclamationSet where ssExclamationSet.contains(i) {
+    answer = i
+    break
 }
 print(answer)
