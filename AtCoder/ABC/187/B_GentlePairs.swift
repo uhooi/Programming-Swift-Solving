@@ -5,24 +5,23 @@ import Foundation
 let n = Int(readLine()!)!
 precondition(1 <= n && Double(n) <= pow(10, 3))
 
-var xxyy: [[Int]] = []
+typealias Point = (x: Int, y: Int)
+var xxyy: [Point] = []
 for _ in 1...n {
-    xxyy.append(readLine()!.split(separator: " ").map { Int($0)! })
+    let xy = readLine()!.split(separator: " ").map { Int($0)! }
+    xxyy.append((x: xy[0], y: xy[1]))
 }
 precondition(xxyy.count == n)
-precondition(xxyy.allSatisfy { Double(abs($0[0])) <= pow(10, 3) })
-precondition(xxyy.allSatisfy { Double(abs($0[1])) <= pow(10, 3) })
+precondition(xxyy.allSatisfy { Double(abs($0.x)) <= pow(10, 3) })
+precondition(xxyy.allSatisfy { Double(abs($0.y)) <= pow(10, 3) })
 
 var answer = 0
-for i in xxyy.indices {
-    if i >= (xxyy.count - 1) {
-        break
-    }
+for i in 0..<(xxyy.count - 1) {
     for j in (i + 1)..<xxyy.count {
-        let dy = xxyy[j][1] - xxyy[i][1]
-        let dx = xxyy[j][0] - xxyy[i][0]
-        let m: Double = Double(dy) / Double(dx)
-        if -1 <= m && m <= 1 {
+        let dy = xxyy[j].y - xxyy[i].y
+        let dx = xxyy[j].x - xxyy[i].x
+        let m = Double(dy) / Double(dx)
+        if abs(m) <= 1 {
             answer += 1
         }
     }
