@@ -21,7 +21,7 @@ precondition(ssExclamationSet.allSatisfy { 1 <= $0.count && $0.count <= 10 })
 
 var answer = "satisfiable"
 for i in ssNotExclamationSet {
-    for j in ssExclamationSet.filter({ $0.count == i.count }) {
+    for j in ssExclamationSet {
         if i == j {
             answer = i
             break
