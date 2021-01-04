@@ -20,8 +20,7 @@ for i in 0..<(xxyy.count - 1) {
     for j in (i + 1)..<xxyy.count {
         let dy = xxyy[j].y - xxyy[i].y
         let dx = xxyy[j].x - xxyy[i].x
-        let m = Double(dy) / Double(dx)
-        if abs(m) <= 1 {
+        if abs(dy) <= abs(dx) {
             answer += 1
         }
     }
