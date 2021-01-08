@@ -8,18 +8,18 @@ precondition(1 <= N && N <= 2_000)
 precondition(1_000 <= Y && Double(Y) <= 2 * pow(10, 7))
 precondition(Y % 1_000 == 0)
 
-var x: Double = -1
-var y: Double = -1
-var z: Double = -1
+var x = -1
+var y = -1
+var z = -1
 for i in 0...N where x == -1 {
     for j in 0...(N - i) {
         let k = N - (i + j)
         if 10_000 * i + 5_000 * j + 1_000 * k == Y {
-            x = Double(i)
-            y = Double(j)
-            z = Double(k)
+            x = i
+            y = j
+            z = k
             break
         }
     }
 }
-print(Int(floor(x)), Int(floor(y)), Int(floor(z)))
+print(x, y, z)
