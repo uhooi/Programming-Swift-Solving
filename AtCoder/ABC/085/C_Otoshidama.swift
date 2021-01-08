@@ -11,9 +11,8 @@ precondition(Y % 1_000 == 0)
 var x: Double = -1
 var y: Double = -1
 var z: Double = -1
-
 for i in 0...N where x == -1 {
-    for j in 0...N where i + j <= N {
+    for j in 0...(N - i) {
         let k = N - (i + j)
         if 10_000 * i + 5_000 * j + 1_000 * k == Y {
             x = Double(i)
@@ -23,5 +22,4 @@ for i in 0...N where x == -1 {
         }
     }
 }
-
 print(Int(floor(x)), Int(floor(y)), Int(floor(z)))
