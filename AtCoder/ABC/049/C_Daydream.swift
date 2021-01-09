@@ -2,7 +2,9 @@
 
 import Foundation
 
-// FIXME: WA
+// FIXME: TLE
+import Foundation
+
 var s = readLine()!
 precondition(1 <= s.count && Double(s.count) <= pow(10, 5))
 
@@ -16,8 +18,7 @@ while isLooping && s.count > 0 {
             if s.prefix(1) == "r" {
                 s = String(s.dropFirst(1))
             }
-        }
-        if s.prefix(2) == "er" {
+        } else if s.prefix(2) == "er" {
             s = String(s.dropFirst(2))
         }
     case "erase":
