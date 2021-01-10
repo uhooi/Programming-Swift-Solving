@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc188/tasks/abc188_d
 
-// FIXME: RE
+// FIXME: TLE
 import Foundation
 
 let NC = readLine()!.split(separator: " ").map { Int($0)! }
@@ -17,12 +17,19 @@ precondition(aabbcc.allSatisfy { 1 <= $0.a && $0.a <= $0.b && Double($0.b) <= po
 precondition(aabbcc.allSatisfy { 1 <= $0.c && Double($0.c) <= pow(10, 9) })
 
 let tenHatNine = NSDecimalNumber(decimal: pow(10, 9)).intValue
-var sum: [Int] = (1...tenHatNine).map { _ in 0 }
+var sum: [Int: Int] = [:]
 for i in 1...N {
-    for j in (aabbcc[i].a)...(aabbcc[i].b) {
-        sum[j - 1] += aabbcc[i].c
+    for j in (aabbcc[i - 1].a)...(aabbcc[i - 1].b) {
+        if let value = sum[j] {
+            sum[j] = value + aabbcc[i - 1].c
+        } else {
+            sum[j] = aabbcc[i - 1].c
+        }
     }
 }
 
-let answer = sum.map { $0 > C ? C : $0 }
+let sum2 = sum
+    .mapValues { $0 > C ? C : $0 }
+var answer = 0
+sum2.forEach { answer += $0.value }
 print(answer)
