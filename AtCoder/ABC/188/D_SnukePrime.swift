@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc188/tasks/abc188_d
 
-// FIXME: TLE
 import Foundation
 
 let NC = readLine()!.split(separator: " ").map { Int($0)! }
@@ -16,19 +15,22 @@ let aabbcc: [ABC] = (1...N).map { _ in
 precondition(aabbcc.allSatisfy { 1 <= $0.a && $0.a <= $0.b && Double($0.b) <= pow(10, 9) })
 precondition(aabbcc.allSatisfy { 1 <= $0.c && Double($0.c) <= pow(10, 9) })
 
-var sum: [Int: Int] = [:]
-for i in 1...N {
-    for j in (aabbcc[i - 1].a)...(aabbcc[i - 1].b) {
-        let cost: Int
-        if let value = sum[j] {
-            cost = value + aabbcc[i - 1].c
-        } else {
-            cost = aabbcc[i - 1].c
-        }
-        sum[j] = cost > C ? C : cost
-    }
+typealias Event = (day: Int, fee: Int)
+var events: [Event] = []
+for abc in aabbcc {
+    events.append(Event(day: abc.a - 1, fee: abc.c))
+    events.append(Event(day: abc.b, fee: -abc.c))
 }
+events.sort { $0.day < $1.day }
 
 var answer = 0
-sum.forEach { answer += $0.value }
+var fee = 0
+var day = 0
+for event in events {
+    if event.day > day {
+        answer += min(fee, C) * (event.day - day)
+        day = event.day
+    }
+    fee += event.fee
+}
 print(answer)
