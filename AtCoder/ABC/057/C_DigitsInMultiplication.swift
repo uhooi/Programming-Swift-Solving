@@ -5,9 +5,8 @@ import Foundation
 let n = Int(readLine()!)!
 precondition(1 <= n && Double(n) <= pow(10, 10))
 
-let nSqrt = Int(floor(sqrt(Double(n))))
-var answer = nSqrt
-for a in 1...nSqrt where n % a == 0 {
+var answer = Int.max
+for a in 1...Int(floor(sqrt(Double(n)))) where n % a == 0 {
     let b = n / a
     let f = F(a, b)
     answer = min(answer, f)
