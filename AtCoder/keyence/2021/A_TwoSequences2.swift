@@ -14,13 +14,12 @@ let bb = readLine()!.split(separator: " ").map { Int($0)! }
 precondition(bb.count == N)
 precondition(bb.allSatisfy { 1 <= $0 && Double($0) <= pow(10, 9) })
 
-let cc: [Int] = (1...N).map { n in
-    var abMax = 0
+var cc: [Int] = []
+for n in 1...N {
+    var abMax = n == 1 ? 0 : cc[n - 2]
     for i in 1...n {
-        for j in i...n where i <= j {
-            abMax = max(abMax, aa[i - 1] * bb[j - 1])
-        }
+        abMax = max(abMax, aa[i - 1] * bb[n - 1])
     }
-    return abMax
+    cc.append(abMax)
 }
 cc.forEach { print($0) }
