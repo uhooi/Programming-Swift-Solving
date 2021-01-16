@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/keyence2021/tasks/keyence2021_a
 
-// FIXME: TLE
 import Foundation
 
 let N = Int(readLine()!)!
@@ -15,11 +14,9 @@ precondition(bb.count == N)
 precondition(bb.allSatisfy { 1 <= $0 && Double($0) <= pow(10, 9) })
 
 var cc: [Int] = []
+var aMax = 0
 for n in 1...N {
-    var abMax = n == 1 ? 0 : cc[n - 2]
-    for i in 1...n {
-        abMax = max(abMax, aa[i - 1] * bb[n - 1])
-    }
-    cc.append(abMax)
+    aMax = max(aMax, aa[n - 1])
+    cc.append(max(n == 1 ? 0 : cc[n - 2], aMax * bb[n - 1]))
 }
 cc.forEach { print($0) }
