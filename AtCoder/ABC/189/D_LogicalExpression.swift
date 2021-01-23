@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc189/tasks/abc189_d
 
-// FIXME: WA
+// FIXME: TLE
 import Foundation
 
 let N = Int(readLine()!)!
@@ -14,10 +14,8 @@ var answer = 0
 for i in 1...((NSDecimalNumber(decimal: pow(2, (N + 1))).intValue) - 1) {
     var y: Bool? = nil
     let xx = i.binaryString(digits: (N + 1)).map({ String($0) }).reversed().map { $0 }
-    print(xx)
     for j in 1...xx.count {
         let x = Bool(truncating: Int(xx[j - 1])! as NSNumber)
-        print(x)
         if y == nil {
             y = x
         } else {
