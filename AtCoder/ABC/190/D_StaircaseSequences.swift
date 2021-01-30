@@ -8,7 +8,8 @@ precondition(1 <= N && Double(N) <= pow(10, 12))
 
 var answer = 2
 if N > 1 {
-    for i in 1...(N / 2) {
+    answer += N % 2 == 0 ? 0 : 2
+    for i in 1...(N / 3) {
         var j = 0
         var count = 0
         while j < N {
