@@ -17,4 +17,4 @@ precondition(spells.count == N)
 precondition(spells.allSatisfy { 1 <= $0.x && Double($0.x) <= pow(10, 9) })
 precondition(spells.allSatisfy { 1 <= $0.y && Double($0.y) <= pow(10, 9) })
 
-print(spells.filter { $0.x < S && $0.y > D } .count > 0 ? "Yes" : "No")
+print(spells.contains { $0.x < S && $0.y > D } ? "Yes" : "No")
