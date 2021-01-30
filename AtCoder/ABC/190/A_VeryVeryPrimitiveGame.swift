@@ -6,10 +6,4 @@ precondition(0 <= A && A <= 100)
 precondition(0 <= B && B <= 100)
 precondition([0, 1].contains(C))
 
-var answer = ""
-if A > B || (A == B && C == 1) {
-    answer = "Takahashi"
-} else {
-    answer = "Aoki"
-}
-print(answer)
+print(A + C > B ? "Takahashi" : "Aoki")
