@@ -1,22 +1,22 @@
 // https://atcoder.jp/contests/abc190/tasks/abc190_d
 
-// FIXME: TLE
 import Foundation
 
 let N = Int(readLine()!)!
 precondition(1 <= N && Double(N) <= pow(10, 12))
 
-var answer = 2
-if N > 1 {
-    answer += N % 2 == 0 ? 0 : 2
-    for i in 1...(N / 3) {
-        var j = 0
-        var count = 0
-        while j < N {
-            j += i + count
-            count += 1
-        }
-        answer += j == N ? 2 : 0
-    }
+var m = N
+while m % 2 == 0 {
+    m /= 2
 }
-print(answer)
+print(divisors(of: m).count * 2)
+
+private func divisors(of value: Int) -> [Int] {
+    precondition(value > 0)
+    var divisors: Set<Int> = []
+    for i in 1...(Int(floor(sqrt(Double(value))))) where value % i == 0 {
+        divisors.insert(i)
+        divisors.insert(value / i)
+    }
+    return divisors.sorted()
+}
