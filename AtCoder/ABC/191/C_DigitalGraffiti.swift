@@ -117,6 +117,41 @@ for i in 1...(H - 2) {
             continue
         }
         
+        // ...
+        // ##.
+        // ##.
+        if (upperLeft == Color.white.rawValue &&
+                upperMiddle == Color.white.rawValue &&
+                middleRight == Color.white.rawValue &&
+                lowerRight == Color.white.rawValue &&
+                lowerMiddle == Color.black.rawValue &&
+                lowerLeft == Color.black.rawValue &&
+                middleLeft == Color.black.rawValue) ||
+            (upperLeft == Color.black.rawValue &&
+                upperMiddle == Color.black.rawValue &&
+                upperRight == Color.white.rawValue &&
+                middleRight == Color.white.rawValue &&
+                lowerMiddle == Color.white.rawValue &&
+                lowerLeft == Color.white.rawValue &&
+                middleLeft == Color.black.rawValue) ||
+            (upperLeft == Color.white.rawValue &&
+                upperMiddle == Color.black.rawValue &&
+                upperRight == Color.black.rawValue &&
+                middleRight == Color.black.rawValue &&
+                lowerRight == Color.white.rawValue &&
+                lowerMiddle == Color.white.rawValue &&
+                middleLeft == Color.white.rawValue) ||
+            (upperMiddle == Color.white.rawValue &&
+                upperRight == Color.white.rawValue &&
+                middleRight == Color.black.rawValue &&
+                lowerRight == Color.black.rawValue &&
+                lowerMiddle == Color.black.rawValue &&
+                lowerLeft == Color.white.rawValue &&
+                middleLeft == Color.white.rawValue) {
+            answer += 1
+            continue
+        }
+        
         // .#.
         // ##.
         // .#.
