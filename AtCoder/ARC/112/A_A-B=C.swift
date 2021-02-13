@@ -14,11 +14,7 @@ precondition(cases.count == T)
 precondition(cases.allSatisfy { 0 <= $0.l && $0.l <= $0.r && Double($0.r) <= pow(10, 6) })
 
 for lr in cases {
-    if lr.r == lr.l && lr.r == 0 {
-        print(1)
-        continue
-    }
-    if lr.r - 2 * lr.l + 1 <= 0 {
+    if lr.r - 2 * lr.l + 1 < 0 {
         print(0)
         continue
     }
