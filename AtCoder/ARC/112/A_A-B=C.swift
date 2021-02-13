@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/arc112/tasks/arc112_a
 
-// FIXME: WA
 import Foundation
 
 let T = Int(readLine()!)!
@@ -15,11 +14,11 @@ precondition(cases.count == T)
 precondition(cases.allSatisfy { 0 <= $0.l && $0.l <= $0.r && Double($0.r) <= pow(10, 6) })
 
 for lr in cases {
-    if lr.l == lr.r {
-        if lr.l == 0 {
-            print(1)
-            continue
-        }
+    if lr.r == lr.l && lr.r == 0 {
+        print(1)
+        continue
+    }
+    if lr.r - 2 * lr.l + 1 <= 0 {
         print(0)
         continue
     }
