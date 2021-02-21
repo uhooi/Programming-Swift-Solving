@@ -18,32 +18,9 @@ private func f(_ x: Int) -> Int {
 }
 
 private func g1(_ x: Int) -> Int {
-    g(x, by: <)
+    Int(String(String(x).sorted(by: >)))!
 }
 
 private func g2(_ x: Int) -> Int {
-    g(x, by: >)
-}
-
-private func g(_ x: Int, by areInIncreasingOrder: (Int, Int) throws -> Bool) -> Int {
-    var result = 0
-    let values = try! x.digits.sorted(by: areInIncreasingOrder)
-    for i in 1...values.count {
-        result += values[i - 1] * pow(10, (i - 1)).intValue
-    }
-    return result
-}
-
-private extension Numeric where Self: LosslessStringConvertible {
-    var digits: [Int] { string.digits }
-}
-private extension LosslessStringConvertible {
-    var string: String { String(self) }
-}
-private extension StringProtocol {
-    var digits: [Int] { compactMap { $0.wholeNumberValue } }
-}
-
-private extension Decimal {
-    var intValue: Int { NSDecimalNumber(decimal: self).intValue }
+    Int(String(String(x).sorted(by: <)))!
 }
