@@ -15,22 +15,22 @@ if K > 0 {
 }
 print(answer)
 
-private func f(_ value: Int) -> Int {
-    g1(value) - g2(value)
+private func f(_ x: Int) -> Int {
+    g1(x) - g2(x)
 }
 
-private func g1(_ value: Int) -> Int {
+private func g1(_ x: Int) -> Int {
     var result = 0
-    let values = value.digits.sorted(by: <)
+    let values = x.digits.sorted(by: <)
     for i in 1...values.count {
         result += values[i - 1] * pow(10, (i - 1)).intValue
     }
     return result
 }
 
-private func g2(_ value: Int) -> Int {
+private func g2(_ x: Int) -> Int {
     var result = 0
-    let values = value.digits.sorted(by: >)
+    let values = x.digits.sorted(by: >)
     for i in 1...values.count {
         result += values[i - 1] * pow(10, (i - 1)).intValue
     }
