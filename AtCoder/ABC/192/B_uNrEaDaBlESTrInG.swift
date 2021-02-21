@@ -12,16 +12,5 @@ precondition(
         ) > 0
 )
 
-var answer = true
-let s = S.map { String($0) }
-for i in 1...S.count {
-    if i % 2 == 1 && "a" <= s[i - 1] && s[i - 1] <= "z" {
-        continue
-    }
-    if i % 2 == 0 && "A" <= s[i - 1] && s[i - 1] <= "Z" {
-        continue
-    }
-    answer = false
-    break
-}
+let answer = S.enumerated().allSatisfy { $0 % 2 == 0 ? $1.isLowercase : $1.isUppercase }
 print(answer ? "Yes" : "No")
