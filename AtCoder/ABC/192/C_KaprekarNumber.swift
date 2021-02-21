@@ -8,10 +8,8 @@ precondition(0 <= N && Double(N) <= pow(10, 9))
 precondition(0 <= K && Double(K) <= pow(10, 5))
 
 var answer = N
-if K > 0 {
-    for _ in 1...K {
-      answer = f(answer)
-    }
+for _ in 0 ..< K {
+    answer = f(answer)
 }
 print(answer)
 
@@ -20,17 +18,16 @@ private func f(_ x: Int) -> Int {
 }
 
 private func g1(_ x: Int) -> Int {
-    var result = 0
-    let values = x.digits.sorted(by: <)
-    for i in 1...values.count {
-        result += values[i - 1] * pow(10, (i - 1)).intValue
-    }
-    return result
+    g(x, by: <)
 }
 
 private func g2(_ x: Int) -> Int {
+    g(x, by: >)
+}
+
+private func g(_ x: Int, by areInIncreasingOrder: (Int, Int) throws -> Bool) -> Int {
     var result = 0
-    let values = x.digits.sorted(by: >)
+    let values = try! x.digits.sorted(by: areInIncreasingOrder)
     for i in 1...values.count {
         result += values[i - 1] * pow(10, (i - 1)).intValue
     }
