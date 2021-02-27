@@ -16,7 +16,3 @@ if N >= 4 {
     }
 }
 print(N - answers.count)
-
-private extension Decimal {
-    var intValue: Int { NSDecimalNumber(decimal: self).intValue }
-}
