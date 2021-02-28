@@ -2,7 +2,6 @@
 
 import Foundation
 
-// FIXME: WA
 let K = Int(readLine()!)!
 precondition(2 <= K && Double(K) <= pow(10, 5))
 
@@ -38,10 +37,10 @@ for s in 1...9 {
         let tt5 = tt4 + [t]
         let sScore = calculateScore(ss5)
         let tScore = calculateScore(tt5)
+        let remainingS = (K - (ss4.filter { $0 == s } .count + tt4.filter { $0 == s } .count))
         if sScore > tScore {
-            let remainingS = (K - (ss5.filter { $0 == s } .count + tt5.filter { $0 == s } .count))
-            let remainingT = (K - (ss5.filter { $0 == t } .count + tt5.filter { $0 == t } .count))
-            numerator += remainingS * remainingT
+            let remainingT = (K - (ss4.filter { $0 == t } .count + tt4.filter { $0 == t } .count))
+            numerator += remainingS * (remainingT - (s == t ? 1 : 0))
         }
     }
 }
