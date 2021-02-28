@@ -32,12 +32,10 @@ let tt4 = T.prefix(4).map { Int(String($0))! }
 
 var numerator = 0
 for s in 1...9 {
+    let sScore = calculateScore(ss4 + [s])
+    let remainingS = (K - (ss4.filter { $0 == s } .count + tt4.filter { $0 == s } .count))
     for t in 1...9 {
-        let ss5 = ss4 + [s]
-        let tt5 = tt4 + [t]
-        let sScore = calculateScore(ss5)
-        let tScore = calculateScore(tt5)
-        let remainingS = (K - (ss4.filter { $0 == s } .count + tt4.filter { $0 == s } .count))
+        let tScore = calculateScore(tt4 + [t])
         if sScore > tScore {
             let remainingT = (K - (ss4.filter { $0 == t } .count + tt4.filter { $0 == t } .count))
             numerator += remainingS * (remainingT - (s == t ? 1 : 0))
