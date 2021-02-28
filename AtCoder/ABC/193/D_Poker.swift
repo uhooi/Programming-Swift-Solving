@@ -32,22 +32,20 @@ let ss4 = S.prefix(4).map { Int(String($0))! }
 let tt4 = T.prefix(4).map { Int(String($0))! }
 
 var numerator = 0
-var denominator = 0
 for s in 1...9 {
     for t in 1...9 {
         let ss5 = ss4 + [s]
         let tt5 = tt4 + [t]
         let sScore = calculateScore(ss5)
         let tScore = calculateScore(tt5)
-        let remainingS = (K - (ss5.filter { $0 == s } .count + tt5.filter { $0 == s } .count))
-        let remainingT = (K - (ss5.filter { $0 == t } .count + tt5.filter { $0 == t } .count))
         if sScore > tScore {
+            let remainingS = (K - (ss5.filter { $0 == s } .count + tt5.filter { $0 == s } .count))
+            let remainingT = (K - (ss5.filter { $0 == t } .count + tt5.filter { $0 == t } .count))
             numerator += remainingS * remainingT
         }
-        denominator += remainingS * remainingT
     }
 }
-print(Double(numerator) / Double(denominator))
+print(Double(numerator) / Double((9 * K - 8) * (9 * K - 9)))
 
 private func calculateScore(_ cards: [Int]) -> Int {
     (1...9)
