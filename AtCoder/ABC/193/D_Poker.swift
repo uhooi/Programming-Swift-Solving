@@ -37,8 +37,8 @@ for s in 1...9 {
     for t in 1...9 {
         let tScore = calculateScore(tt4 + [t])
         if sScore > tScore {
-            let remainingT = (K - (ss4.filter { $0 == t } .count + tt4.filter { $0 == t } .count))
-            numerator += remainingS * (remainingT - (s == t ? 1 : 0))
+            let remainingT = (K - (ss4.filter { $0 == t } .count + tt4.filter { $0 == t } .count)) - (s == t ? 1 : 0)
+            numerator += remainingS * remainingT
         }
     }
 }
