@@ -18,9 +18,7 @@ var answer = Int.max
 for i in 1...N {
     for j in 1...N {
         let hour = i != j ? max(employees[i - 1].a, employees[j - 1].b) : employees[i - 1].a + employees[j - 1].b
-        if hour < answer {
-            answer = hour
-        }
+        answer = min(answer, hour)
     }
 }
 print(answer)
