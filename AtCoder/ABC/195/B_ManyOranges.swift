@@ -8,14 +8,14 @@ precondition(1 <= A && A <= B && B <= 1_000)
 precondition(1 <= W && W <= 1_000)
 
 let weight = W * 1_000
-for i in 1... {
-    if A * i <= weight && weight <= B * i {
-        let minAnswer = Int(ceil(Double(weight) / Double(B)))
-        let maxAnswer = Int(floor(Double(weight) / Double(A)))
-        print(minAnswer, maxAnswer)
+for n in 1...(1_000 * 1_000) {
+    if A * n <= weight && weight <= B * n {
+        let lower = Int(ceil(Double(weight) / Double(B)))
+        let upper = Int(floor(Double(weight) / Double(A)))
+        print(lower, upper)
         break
     }
-    if A * i > weight {
+    if A * n > weight {
         print("UNSATISFIABLE")
         break
     }
