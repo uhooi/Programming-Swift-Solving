@@ -8,21 +8,21 @@ precondition(1 <= S2.count && S2.count <= 10)
 precondition(1 <= S3.count && S3.count <= 10)
 
 let existingAlphabets = Array(Set((S1 + S2 + S3).map { String($0) }))
+let s1Indices = S1.map { existingAlphabets.firstIndex(of: String($0))! }
+let s2Indices = S2.map { existingAlphabets.firstIndex(of: String($0))! }
+let s3Indices = S3.map { existingAlphabets.firstIndex(of: String($0))! }
+
 if existingAlphabets.count > 10 {
     print("UNSOLVABLE")
 } else {
     var answer: [Int] = []
     for numbers in permutations(of: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
-        let dictionary = Dictionary(uniqueKeysWithValues: zip(existingAlphabets, numbers))
-        let s1String = S1.map { String(dictionary[String($0)]!) } .joined()
-        let s2String = S2.map { String(dictionary[String($0)]!) } .joined()
-        let s3String = S3.map { String(dictionary[String($0)]!) } .joined()
-        if s1String.prefix(1) == "0" || s2String.prefix(1) == "0" || s3String.prefix(1) == "0" {
+        if s1Indices[0] == numbers[0] || s2Indices[0] == numbers[0] || s3Indices[0] == numbers[0] {
             continue
         }
-        let s1 = Int(s1String)!
-        let s2 = Int(s2String)!
-        let s3 = Int(s3String)!
+        let s1 = s1Indices.map { numbers.firstIndex(of: $0)! } .reduce(0) { x, y in x * 10 + y }
+        let s2 = s2Indices.map { numbers.firstIndex(of: $0)! } .reduce(0) { x, y in x * 10 + y }
+        let s3 = s3Indices.map { numbers.firstIndex(of: $0)! } .reduce(0) { x, y in x * 10 + y }
         if s1 + s2 == s3 {
             answer = [s1, s2, s3]
             break
