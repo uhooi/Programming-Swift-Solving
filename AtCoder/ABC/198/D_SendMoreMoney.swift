@@ -16,7 +16,7 @@ if existingAlphabets.count > 10 {
     print("UNSOLVABLE")
 } else {
     var answer: [Int] = []
-    for numbers in permutations(of: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+    for numbers in permutations(of: (0...9)) {
         if numbers[s1Indices[0]] == 0 || numbers[s2Indices[0]] == 0 || numbers[s3Indices[0]] == 0 {
             continue
         }
@@ -35,16 +35,18 @@ if existingAlphabets.count > 10 {
     }
 }
 
-private func permutations<T>(of values: [T]) -> [[T]] {
+private func permutations<S: Sequence>(of values: S) -> [[S.Element]] {
+    let values = Array(values)
     if values.count <= 1 {
         return [values]
     }
-    var results: [[T]] = []
+    var results: [[S.Element]] = []
     for i in values.indices {
-        let baseValue = values[i]
-        var excludingBaseValue = values
-        excludingBaseValue.remove(at: i)
-        results += permutations(of: excludingBaseValue).map { [baseValue] + $0 }
+        var subResults = permutations(of: values[..<i] + values[(i + 1)...])
+        for j in subResults.indices {
+            subResults[j].append(values[i])
+        }
+        results.append(contentsOf: subResults)
     }
     return results
 }
