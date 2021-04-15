@@ -17,12 +17,12 @@ if existingAlphabets.count > 10 {
 } else {
     var answer: [Int] = []
     for numbers in permutations(of: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
-        if s1Indices[0] == numbers[0] || s2Indices[0] == numbers[0] || s3Indices[0] == numbers[0] {
+        if numbers[s1Indices[0]] == 0 || numbers[s2Indices[0]] == 0 || numbers[s3Indices[0]] == 0 {
             continue
         }
-        let s1 = s1Indices.map { numbers.firstIndex(of: $0)! } .reduce(0) { x, y in x * 10 + y }
-        let s2 = s2Indices.map { numbers.firstIndex(of: $0)! } .reduce(0) { x, y in x * 10 + y }
-        let s3 = s3Indices.map { numbers.firstIndex(of: $0)! } .reduce(0) { x, y in x * 10 + y }
+        let s1 = s1Indices.map { numbers[$0] } .reduce(0) { x, y in x * 10 + y }
+        let s2 = s2Indices.map { numbers[$0] } .reduce(0) { x, y in x * 10 + y }
+        let s3 = s3Indices.map { numbers[$0] } .reduce(0) { x, y in x * 10 + y }
         if s1 + s2 == s3 {
             answer = [s1, s2, s3]
             break
