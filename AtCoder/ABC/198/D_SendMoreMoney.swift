@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc198/tasks/abc198_d
 
-// FIXME: TLE
 let ss = (1...3).map { _ in readLine()! }
 let (S1, S2, S3) = (ss[0], ss[1], ss[2])
 precondition(1 <= S1.count && S1.count <= 10)
@@ -36,17 +35,20 @@ if existingAlphabets.count > 10 {
 }
 
 private func permutations<S: Sequence>(of values: S) -> [[S.Element]] {
-    let values = Array(values)
-    if values.count <= 1 {
-        return [values]
-    }
-    var results: [[S.Element]] = []
-    for i in values.indices {
-        var subResults = permutations(of: values[..<i] + values[(i + 1)...])
-        for j in subResults.indices {
-            subResults[j].append(values[i])
+    func _permutations<T>(of values: [T], indices: Range<Int>, result: inout [[T]]) {
+        if indices.isEmpty {
+            result.append(values)
+            return
         }
-        results.append(contentsOf: subResults)
+        var values = values
+        for i in indices {
+            values.swapAt(indices.lowerBound, i)
+            _permutations(of: values, indices: (indices.lowerBound + 1) ..< indices.upperBound, result: &result)
+        }
     }
-    return results
+
+    var result: [[S.Element]] = []
+    let values = Array(values)
+    _permutations(of: values, indices: values.indices, result: &result)
+    return result
 }
