@@ -11,11 +11,17 @@ let lastNumber: Int
 if A >= B {
     positives = Array(1...A)
     negatives = B > 1 ? Array((-B + 1)...(-1)) : []
-    lastNumber = -(positives.reduce(0, +) + negatives.reduce(0, +))
+    lastNumber = -(positives.sum() + negatives.sum())
 } else {
     negatives = Array((-B)...(-1))
     positives = A > 1 ? Array(1...(A - 1)) : []
-    lastNumber = -negatives.reduce(0, +) - positives.reduce(0, +)
+    lastNumber = -negatives.sum() - positives.sum()
 }
 let answer = negatives + positives + [lastNumber]
 print(answer.map { String($0) } .joined(separator: " "))
+
+private extension Sequence where Element: AdditiveArithmetic {
+    func sum() -> Element {
+        reduce(.zero, +)
+    }
+}
