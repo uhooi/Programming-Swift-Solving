@@ -9,7 +9,7 @@ let positives: [Int]
 let negatives: [Int]
 let lastNumber: Int
 if A >= B {
-    positives = Array((1...A))
+    positives = Array(1...A)
     negatives = B > 1 ? Array((-B + 1)...(-1)) : []
     lastNumber = -(positives.reduce(0, +) + negatives.reduce(0, +))
 } else {
