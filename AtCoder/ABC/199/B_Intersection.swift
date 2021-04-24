@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc199/tasks/abc199_b
 
-// FIXME: TLE
 let N = Int(readLine()!)!
 precondition(1 <= N && N <= 100)
 
@@ -16,13 +15,5 @@ precondition(bb.count == N)
 //    }
 //)
 
-var answer: Set<Int> = Set(1...1_000)
-for i in 0..<N {
-    for j in 1..<aa[i] {
-        answer.remove(j)
-    }
-    for j in (bb[i] + 1)...1_000 {
-        answer.remove(j)
-    }
-}
-print(answer.count)
+let answer = bb.min()! - aa.max()! + 1
+print(answer > 0 ? answer : 0)
