@@ -11,6 +11,13 @@ if String(N).count % 2 == 0 {
 } else {
     n = String(N).indices.map { _ in String(9) } .joined()
 }
-let firstHalf = Int(n.prefix(n.count / 2))!
-let lastHalf = Int(n.suffix(n.count / 2))!
-print(firstHalf <= lastHalf ? firstHalf : firstHalf - 1)
+
+let answer: Int
+if n.count > 1 {
+    let firstHalf = Int(n.prefix(n.count / 2))!
+    let lastHalf = Int(n.suffix(n.count / 2))!
+    answer = firstHalf <= lastHalf ? firstHalf : firstHalf - 1
+} else {
+    answer = 0
+}
+print(answer)
