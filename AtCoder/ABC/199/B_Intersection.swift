@@ -15,5 +15,5 @@ precondition(bb.count == N)
 //    }
 //)
 
-let answer = bb.min()! - aa.max()! + 1
-print(answer > 0 ? answer : 0)
+let answer = max(bb.min()! - aa.max()! + 1, 0)
+print(answer)
