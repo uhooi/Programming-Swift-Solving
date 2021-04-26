@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc199/tasks/abc199_c
 
-// FIXME: TLE
 import Foundation
 
 let N = Int(readLine()!)!
@@ -32,14 +31,25 @@ precondition(queries.allSatisfy {
 })
 
 var answers = S.map { String($0) }
+var isSwitched = false
 for query in queries {
     switch query.t {
     case 1:
-        answers.swapAt(query.a - 1, query.b - 1)
+        let a: Int
+        let b: Int
+        if isSwitched {
+            a = query.a + (query.a <= N ? N : -N) - 1
+            b = query.b + (query.b <= N ? N : -N) - 1
+        } else {
+            a = query.a - 1
+            b = query.b - 1
+        }
+        answers.swapAt(a, b)
     case 2:
-        answers = answers.dropFirst(answers.count / 2) + answers.dropLast(answers.count / 2)
+        isSwitched.toggle()
     default:
         preconditionFailure()
     }
 }
+answers = isSwitched ? answers.dropFirst(answers.count / 2) + answers.dropLast(answers.count / 2) : answers
 print(answers.joined())
