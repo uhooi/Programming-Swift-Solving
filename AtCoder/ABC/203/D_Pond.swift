@@ -1,6 +1,6 @@
 // https://atcoder.jp/contests/abc203/tasks/abc203_d
 
-// FIXME: WA
+// FIXME: TLE
 import Foundation
 
 let NK = readLine()!.split(separator: " ").map { Int($0)! }
@@ -22,7 +22,6 @@ for i in 1...(N - K + 1) {
             }
         }
         aa.sort(by: >)
-        print(aa)
         let center = aa[K * K / 2]
         answer = answer > center ? center : answer
     }

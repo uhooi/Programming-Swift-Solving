@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc203/tasks/abc203_c
 
-// FIXME: TLE
 import Foundation
 
 let NK = readLine()!.split(separator: " ").map { Int($0)! }
@@ -24,11 +23,10 @@ for i in 0..<N {
         money += friends[i].money
         continue
     }
-    for _ in answer + 1...friends[i].village where money != 0 {
-        money -= 1
-        answer += 1
-    }
-    if friends[i].village == answer {
+    let count = friends[i].village - (answer + 1)
+    money -= count
+    answer += count
+    if money > 0 {
         money += friends[i].money
     } else {
         break
