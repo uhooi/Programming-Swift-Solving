@@ -19,16 +19,8 @@ precondition(friends.allSatisfy { 1 <= $0.money && Double($0.money) <= pow(10, 9
 var friendsDictionary: [Int: Int] = [:]
 friends.forEach { friendsDictionary[$0.village, default: 0] += $0.money }
 
-var currentVillage = 0
-var currentMoney = K
-for village in friendsDictionary.keys.sorted() {
-    let count = village - currentVillage
-    currentMoney -= count
-    currentVillage += count
-    if currentMoney >= 0 {
-        currentMoney += friendsDictionary[village]!
-    } else {
-        break
-    }
+var moneySum = K
+for village in friendsDictionary.keys.sorted() where moneySum >= village {
+    moneySum += friendsDictionary[village]!
 }
-print(currentVillage + currentMoney)
+print(moneySum)
