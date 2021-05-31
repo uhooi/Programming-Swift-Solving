@@ -16,20 +16,20 @@ precondition(friends.count == N)
 precondition(friends.allSatisfy { 1 <= $0.village && Double($0.village) <= pow(10, 18) })
 precondition(friends.allSatisfy { 1 <= $0.money && Double($0.money) <= pow(10, 9) })
 
-var answer = 0
+var currentVillage = 0
 var money = K
 for i in 0..<N {
-    if friends[i].village == answer {
+    if friends[i].village == currentVillage {
         money += friends[i].money
         continue
     }
-    let count = friends[i].village - (answer + 1)
+    let count = friends[i].village - (currentVillage + 1)
     money -= count
-    answer += count
+    currentVillage += count
     if money > 0 {
         money += friends[i].money
     } else {
         break
     }
 }
-print(answer + money)
+print(currentVillage + money)
