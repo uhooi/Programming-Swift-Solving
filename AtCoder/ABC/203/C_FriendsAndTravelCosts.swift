@@ -1,6 +1,5 @@
 // https://atcoder.jp/contests/abc203/tasks/abc203_c
 
-// FIXME: WA
 import Foundation
 
 let NK = readLine()!.split(separator: " ").map { Int($0)! }
@@ -26,7 +25,6 @@ for village in friendsDictionary.keys.sorted() {
     let count = village - currentVillage
     currentMoney -= count
     currentVillage += count
-    print(currentVillage, currentMoney)
     if currentMoney >= 0 {
         currentMoney += friendsDictionary[village]!
     } else {
