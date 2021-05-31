@@ -1,5 +1,6 @@
 // https://atcoder.jp/contests/abc203/tasks/abc203_c
 
+// FIXME: WA
 import Foundation
 
 let NK = readLine()!.split(separator: " ").map { Int($0)! }
@@ -11,25 +12,25 @@ typealias Friend = (village: Int, money: Int)
 let friends: [Friend] = (1...N).map { _ in
     let friend = readLine()!.split(separator: " ").map { Int($0)! }
     return Friend(village: friend[0], friend[1])
-} .sorted { $0.village < $1.village }
+}
 precondition(friends.count == N)
 precondition(friends.allSatisfy { 1 <= $0.village && Double($0.village) <= pow(10, 18) })
 precondition(friends.allSatisfy { 1 <= $0.money && Double($0.money) <= pow(10, 9) })
 
+var friendsDictionary: [Int: Int] = [:]
+friends.forEach { friendsDictionary[$0.village, default: 0] += $0.money }
+
 var currentVillage = 0
-var money = K
-for i in 0..<N {
-    if friends[i].village == currentVillage {
-        money += friends[i].money
-        continue
-    }
-    let count = friends[i].village - (currentVillage + 1)
-    money -= count
+var currentMoney = K
+for village in friendsDictionary.keys.sorted() {
+    let count = village - currentVillage
+    currentMoney -= count
     currentVillage += count
-    if money > 0 {
-        money += friends[i].money
+    print(currentVillage, currentMoney)
+    if currentMoney >= 0 {
+        currentMoney += friendsDictionary[village]!
     } else {
         break
     }
 }
-print(currentVillage + money)
+print(currentVillage + currentMoney)
