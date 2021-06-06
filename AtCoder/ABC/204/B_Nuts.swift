@@ -7,8 +7,7 @@ let aa = readLine()!.split(separator: " ").map { Int($0)! }
 precondition(aa.count == N)
 precondition(aa.allSatisfy { 0 <= $0 && $0 <= 1_000 })
 
-let answer = aa.filter { $0 > 10 } .map { $0 - 10 }
-print(answer.sum())
+print(aa.map { max(0, $0 - 10) } .sum())
 
 private extension Sequence where Element: AdditiveArithmetic {
     func sum() -> Element {
