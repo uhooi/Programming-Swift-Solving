@@ -8,11 +8,19 @@ let (N, K) = (NK[0], NK[1])
 precondition(1 <= N && Double(N) <= pow(10, 18))
 precondition(1 <= K && Double(K) <= pow(10, 9))
 
-var answer = 0
-for i in 1...N {
-    answer += (i.digits.reduce(1, *) <= K) ? 1 : 0
+if N <= K {
+    print(N)
+} else {
+    var answer = K
+    for i in (K + 1)...N {
+        if String(i).contains("0") {
+            answer += 1
+            continue
+        }
+        answer += (i.digits.reduce(1, *) <= K) ? 1 : 0
+    }
+    print(answer)
 }
-print(answer)
 
 private extension Numeric where Self: LosslessStringConvertible {
     var digits: [Int] { string.digits }
