@@ -12,7 +12,7 @@ precondition(aa.allSatisfy { 1 <= $0 && $0 <= 100 })
 
 var dp: [Int] = [0, aa[1]]
 for i in 2..<N {
-    var minT = M * 100
+    var minT = Int.max
     for j in 1...M where i >= j {
         minT = min(minT, dp[i - j] + j * aa[i])
     }
