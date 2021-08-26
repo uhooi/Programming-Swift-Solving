@@ -9,7 +9,7 @@ precondition(aa.count == N)
 precondition(aa.allSatisfy { 1 <= $0 && $0 <= 100 })
 
 var dp: [Int] = [0, aa[1]]
-for i in 2...(N - 1) {
+for i in 2..<N {
     dp.append(min(dp[i - 1] + aa[i], dp[i - 2] + aa[i] * 2))
 }
 print(dp.last!)
