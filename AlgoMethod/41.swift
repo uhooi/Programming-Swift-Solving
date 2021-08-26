@@ -1,7 +1,6 @@
 // 動的計画法 2-3
 // https://algo-method.com/tasks/41
 
-// FIXME: WA
 let workCount = 3
 
 let N = Int(readLine()!)!
@@ -20,9 +19,9 @@ precondition(works.allSatisfy { 1 <= $0.w2 && $0.w2 <= 1_000 })
 var dp: [[Int]] = .init(repeating: .init(repeating: 0, count: workCount), count: N)
 dp[0] = [works[0].w0, works[0].w1, works[0].w2]
 for i in 1..<N {
-    let w0Max = works[i].w0 + max(works[i - 1].w1, works[i - 1].w2)
-    let w1Max = works[i].w1 + max(works[i - 1].w0, works[i - 1].w2)
-    let w2Max = works[i].w2 + max(works[i - 1].w0, works[i - 1].w1)
+    let w0Max = works[i].w0 + max(dp[i - 1][1], dp[i - 1][2])
+    let w1Max = works[i].w1 + max(dp[i - 1][0], dp[i - 1][2])
+    let w2Max = works[i].w2 + max(dp[i - 1][0], dp[i - 1][1])
     dp[i] = [w0Max, w1Max, w2Max]
 }
 print(dp[N - 1].max()!)
