@@ -14,7 +14,7 @@ for row in 0..<N {
     for column in 0..<N {
         let upSquare = (row - 1 < 0) ? 0 : dp[row - 1][column]
         let leftSquare = (column - 1 < 0) ? 0 : dp[row][column - 1]
-        dp[row][column] += upSquare >= leftSquare ? upSquare : leftSquare
+        dp[row][column] += max(upSquare, leftSquare)
     }
 }
 print(dp[N - 1][N - 1])
