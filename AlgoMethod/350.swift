@@ -1,8 +1,6 @@
 // Q3-5. 部分和問題(応用 1)
 // https://algo-method.com/tasks/350
 
-// FIXME: WA
-
 // MARK: Functions
 
 private func readInt2() -> (Int, Int) {
@@ -30,8 +28,10 @@ for row in 1..<(N + 1) {
     dp[row] = dp[row - 1]
     for column in 0..<(M + 1) {
         let dstColumn = column + ww[row - 1]
-        if dstColumn < (M + 1) && (dp[row - 1][dstColumn].count > dp[row - 1][column].count + 1 || column == 0) {
-            dp[row][dstColumn] = dp[row - 1][column] + [ww[row - 1]]
+        if dstColumn < (M + 1) && (dp[row - 1][column].count > 0 || column == 0) {
+            if dp[row - 1][dstColumn].count > dp[row - 1][column].count + 1 || dp[row - 1][dstColumn].isEmpty {
+                dp[row][dstColumn] = dp[row - 1][column] + [ww[row - 1]]
+            }
         }
     }
 }
