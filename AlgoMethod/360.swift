@@ -17,6 +17,7 @@ let X = readInt()
 precondition(1 <= X && X <= 1_000)
 
 let aa = readIntArray()
+precondition(aa.count == 4)
 precondition(aa.allSatisfy { 1 <= $0 && $0 <= 100 })
 
 var answer = 0
