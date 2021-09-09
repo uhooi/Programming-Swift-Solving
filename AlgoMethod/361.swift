@@ -1,8 +1,6 @@
 // Q1-4. 荷物と箱
 // https://algo-method.com/tasks/361
 
-// FIXME: WA
-
 import Foundation
 
 // MARK: Functions
