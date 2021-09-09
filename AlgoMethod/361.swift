@@ -1,7 +1,7 @@
 // Q1-4. 荷物と箱
 // https://algo-method.com/tasks/361
 
-// FIXME: IE
+// FIXME: WA
 
 import Foundation
 
@@ -33,7 +33,7 @@ precondition(bb.allSatisfy { 1 <= $0 && Double($0) <= pow(10, 9) })
 
 var answer = 0
 var sortedAa = aa.sorted(by: <)
-for b in bb.reversed() {
+for b in bb.reversed() where !sortedAa.isEmpty {
     while !sortedAa.isEmpty {
         let a = sortedAa.popLast()!
         if b >= a {
