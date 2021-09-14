@@ -12,7 +12,6 @@ private func readInt() -> Int {
 let N = readInt()
 precondition(3 <= N && N <= 100_000)
 
-var answer: Double = 0.0
 var left: Double = 0.0
 var right = min(Double(N), 100.0)
 while right - left > 0.01 {
