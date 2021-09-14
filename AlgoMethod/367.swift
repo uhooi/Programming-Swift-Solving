@@ -23,10 +23,10 @@ while right - left > 0.01 {
     for _ in 1...5 {
         deposit = deposit * x + 1.0
     }
-    if deposit >= Double(M) { // ???: 等号を含めていいかわかっていない
+    if deposit >= Double(M) {
         right = x
     } else {
         left = x
     }
 }
-print(left) // ???: `left` を出力するのでいいかわかっていない
+print(left)

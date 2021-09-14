@@ -16,10 +16,10 @@ var left: Double = 0.0
 var right = min(Double(N), 100.0)
 while right - left > 0.01 {
     let x = (left + right) / 2.0
-    if x * (x * (x + 1) + 2) + 3 >= Double(N) { // ???: 等号を含めていいかわかっていない
+    if x * (x * (x + 1) + 2) + 3 >= Double(N) {
         right = x
     } else {
         left = x
     }
 }
-print(left) // ???: `left` を出力するのでいいかわかっていない
+print(left)
