@@ -36,7 +36,7 @@ precondition(bb.allSatisfy { 1 <= $0 && $0 <= aa[N - 1] })
 for b in bb {
     var left = 0
     var right = N - 1
-    while right > left {
+    while (right - left) > 1 {
         let mid = (left + right) / 2
         if aa[mid] >= b {
             right = mid
@@ -44,5 +44,5 @@ for b in bb {
             left = mid
         }
     }
-    print(left)
+    print(right)
 }
