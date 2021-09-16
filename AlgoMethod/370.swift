@@ -1,8 +1,6 @@
 // Q2-3. 最小の添字
 // https://algo-method.com/tasks/370
 
-// FIXME: WA
-
 import Foundation
 
 // MARK: Functions
@@ -34,7 +32,7 @@ precondition(bb.allSatisfy { 1 <= $0 && $0 <= aa[N - 1] })
 // MARK: Main
 
 for b in bb {
-    var left = 0
+    var left = -1
     var right = N - 1
     while (right - left) > 1 {
         let mid = (left + right) / 2
