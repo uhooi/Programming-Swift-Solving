@@ -1,8 +1,6 @@
 // Q2-4. 小さい数の個数
 // https://algo-method.com/tasks/382
 
-// FIXME: WA
-
 import Foundation
 
 // MARK: Functions
@@ -36,7 +34,7 @@ precondition(bb.allSatisfy { 1 <= $0 && Double($0) <= pow(10, 9) })
 let sortedAa = aa.sorted()
 for b in bb {
     var left = -1
-    var right = N - 1
+    var right = N
     while (right - left) > 1 {
         let mid = (left + right) / 2
         if sortedAa[mid] > b {
@@ -47,4 +45,3 @@ for b in bb {
     }
     print(right)
 }
-
