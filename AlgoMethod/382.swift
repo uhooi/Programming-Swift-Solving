@@ -39,7 +39,7 @@ for b in bb {
     var right = N - 1
     while (right - left) > 1 {
         let mid = (left + right) / 2
-        if aa[mid] > b {
+        if sortedAa[mid] > b {
             right = mid
         } else {
             left = mid
