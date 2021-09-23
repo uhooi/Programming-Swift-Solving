@@ -23,12 +23,11 @@ precondition(1 <= K && K <= N * N)
 
 var answer = 0
 for i in (1...N) {
-    let row = (1...N).map { $0 * i }
     var left = -1
     var right = N
     while (right - left) > 1 {
         let mid = (left + right) / 2
-        if row[mid] > K {
+        if (mid + 1) * i > K {
             right = mid
         } else {
             left = mid
