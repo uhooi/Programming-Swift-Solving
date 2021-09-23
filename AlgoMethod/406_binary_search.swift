@@ -1,8 +1,6 @@
 // Q2-9. 九九の表 (1)
 // https://algo-method.com/tasks/406
 
-// FIXME: TLE
-
 import Foundation
 
 // MARK: Functions
