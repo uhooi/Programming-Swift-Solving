@@ -28,7 +28,7 @@ precondition(xx.allSatisfy { 1 <= $0 && Double($0) <= pow(10, 18)})
 
 for k in 0...(N - 1) {
     var left = -1
-    var right = 1_000_000_000
+    var right = 2_000_000_000
     while (right - left) > 1 {
         let mid = (left + right) / 2
         if (((mid + 1) * mid) / 2) >= xx[k] {
