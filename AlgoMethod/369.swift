@@ -27,8 +27,8 @@ precondition(ll.allSatisfy { 1 <= $0 && Double($0) <= pow(10, 5)})
 
 // MARK: Main
 
-var left: Double = -0.00001
-var right: Double = 100_000.0 // ???: なぜこの値なのかわかっていない、 `20_000.0` だと足りなかった
+var left: Double = 0.0
+var right: Double = 100_000.0
 while (right - left) > 0.000001 {
     let mid = (left + right) / 2
     if (ll.map({ Int(floor(Double($0) / mid)) }).reduce(0, +)) < K {
