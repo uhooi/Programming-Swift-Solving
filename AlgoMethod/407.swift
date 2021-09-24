@@ -1,8 +1,6 @@
 // Q2-10. 九九の表 (2)
 // https://algo-method.com/tasks/407
 
-// FIXME: WA
-
 import Foundation
 
 // MARK: Functions
@@ -31,7 +29,7 @@ while (right - left) > 1 {
         sum += min(mid / i, N)
     }
     
-    if sum > X {
+    if sum >= X {
         right = mid
     } else {
         left = mid
