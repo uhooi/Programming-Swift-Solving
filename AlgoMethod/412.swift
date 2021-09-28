@@ -1,8 +1,6 @@
 // Q3-2. フォロー
 // https://algo-method.com/tasks/412
 
-// FIXME: RE
-
 // MARK: Functions
 
 private func readInt2() -> (Int, Int) {
@@ -34,10 +32,10 @@ precondition(aabb.allSatisfy { (_, b) in 0 <= b && b <= N - 1 })
 
 // MARK: Main
 
-var answers: [[Int]] = .init(repeating: .init(repeating: -1, count: N), count: N)
+var answers: [[Int]] = .init(repeating: [], count: N)
 for (a, b) in aabb {
-    answers[a][b] = b
+    answers[a].append(b)
 }
 for a in 0..<N {
-    print(answers[a].lazy.filter { $0 != -1 } .map { String($0) } .joined(separator: " "))
+    print(answers[a].lazy.sorted().map { String($0) } .joined(separator: " "))
 }
