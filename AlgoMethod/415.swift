@@ -25,15 +25,10 @@ precondition(aa.indices.allSatisfy { 0 <= aa[$0] && aa[$0] <= $0 })
 
 // MARK: Main
 
-var boxGraph: [Int] = .init(repeating: 0, count: N)
-for i in 0..<(N - 1) {
-    boxGraph[i + 1] = aa[i]
-}
-
 var answer = 0
-var box = X
-while box != 0 {
-    box = boxGraph[box]
+var current = X
+while current != 0 {
+    current = aa[current - 1]
     answer += 1
 }
 print(answer)
