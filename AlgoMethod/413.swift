@@ -48,7 +48,7 @@ for (a, b) in aabb {
 }
 
 var answers: Set<Int> = []
-for a in 0..<N where friends[a].contains(X) {
+for a in arurusFriends {
     friends[a].lazy.filter { !arurusFriends.contains($0) && $0 != X } .forEach { friend in
         answers.insert(friend)
     }
