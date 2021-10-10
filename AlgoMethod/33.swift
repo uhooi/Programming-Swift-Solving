@@ -26,6 +26,5 @@ precondition(N < M)
 // MARK: Main
 
 var characters = Array(S)
-characters[N - 1] = S[S.index(S.startIndex, offsetBy: M - 1)]
-characters[M - 1] = S[S.index(S.startIndex, offsetBy: N - 1)]
+characters.swapAt(N - 1, M - 1)
 print(String(characters))
