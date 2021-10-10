@@ -23,4 +23,4 @@ precondition(ss.allSatisfy { 1 <= $0.count && $0.count <= 2_000 })
 
 // MARK: Main
 
-print(ss.reduce("") { $0 + String(Array($1)[0])})
+print(String(ss.map { $0.first! }))
