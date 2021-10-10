@@ -23,4 +23,4 @@ precondition(ss.allSatisfy { 1 <= $0.count && $0.count <= 2_000 })
 
 // MARK: Main
 
-print(ss.lazy.map { $0.count } .reduce(0, +))
+print(ss.reduce(0) { $0 + $1.count })
