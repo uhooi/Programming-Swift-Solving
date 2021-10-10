@@ -23,15 +23,17 @@ precondition(ss.allSatisfy { ["left", "right"].contains($0) })
 
 // MARK: Main
 
-let leftCount = ss.filter { $0 == "left" } .count
-let rightCount = ss.filter { $0 == "right" } .count
+let condition = ss.reduce(0) { $0 + ($1 == "left" ? -1 : 1) }
 
-var answer = ""
-if leftCount > rightCount {
+let answer: String
+switch condition {
+case ...(-1):
     answer = "left"
-} else if leftCount == rightCount {
+case 0:
     answer = "same"
-} else if leftCount < rightCount {
+case 1...:
     answer = "right"
+default:
+    fatalError()
 }
 print(answer)
