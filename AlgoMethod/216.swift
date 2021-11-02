@@ -25,6 +25,5 @@ precondition(aa.indices.allSatisfy { 1 <= $0 && $0 <= 100 })
 
 // MARK: Main
 
-let index = aa.lastIndex(of: V)
-let answer = index != nil ? index! : -1
+let answer = aa.lastIndex(of: V) ?? -1
 print(answer)
