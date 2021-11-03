@@ -18,7 +18,7 @@ precondition(1 <= N && N <= 100)
 
 let aa = readIntArray()
 precondition(aa.count == N)
-precondition(aa.indices.allSatisfy { -100 <= $0 && $0 <= 100 })
+precondition(aa.allSatisfy { -100 <= $0 && $0 <= 100 })
 
 // MARK: Main
 

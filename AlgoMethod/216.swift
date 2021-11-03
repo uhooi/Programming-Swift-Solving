@@ -21,7 +21,7 @@ precondition(1 <= V && V <= 100)
 
 let aa = readIntArray()
 precondition(aa.count == N)
-precondition(aa.indices.allSatisfy { 1 <= $0 && $0 <= 100 })
+precondition(aa.allSatisfy { 1 <= $0 && $0 <= 100 })
 
 // MARK: Main
 
