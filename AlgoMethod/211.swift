@@ -22,8 +22,8 @@ precondition(aa.allSatisfy { 1 <= $0 && $0 <= 100 })
 
 // MARK: Main
 
-var answer = -1
-var aaMax = 0
+var answer = 0
+var aaMax = Int.min
 for (index, a) in aa.enumerated() where a > aaMax {
     (answer, aaMax) = (index, a)
 }
