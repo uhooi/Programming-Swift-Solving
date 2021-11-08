@@ -10,13 +10,8 @@ private func readInt2() -> (Int, Int) {
 }
 
 private func gcd(_ a: Int, _ b: Int) -> Int {
-    precondition(a > 0 && b > 0)
-    var result = 1
-    for i in (1...min(A, B)).reversed() where A % i == 0 && B % i == 0 {
-        result = i
-        break
-    }
-    return result
+    precondition(a > 0 && b >= 0)
+    return b == 0 ? a : gcd(b, a % b)
 }
 
 // MARK: Inputs
