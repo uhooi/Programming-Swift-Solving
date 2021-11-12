@@ -14,4 +14,5 @@ precondition(S.count <= 100)
 
 // MARK: Main
 
-print((1..<S.count).filter { S[S.index(S.startIndex, offsetBy: $0 - 1)] == S[S.index(S.startIndex, offsetBy: $0)] } .count)
+let ss = Array(S)
+print((1..<ss.count).lazy.filter { ss[$0 - 1] == ss[$0] } .count)
