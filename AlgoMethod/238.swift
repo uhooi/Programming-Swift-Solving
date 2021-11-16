@@ -18,7 +18,11 @@ precondition(L <= R && R <= 1_000)
 // MARK: Other Functions
 
 private extension Int {
-    var isPalindrome: Bool { String(self) == String(String(self).reversed()) }
+    var isPalindrome: Bool { String(self).isPalindrome }
+}
+
+private extension String {
+    var isPalindrome: Bool { self == String(self.reversed()) }
 }
 
 // MARK: Main
