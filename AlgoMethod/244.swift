@@ -1,8 +1,6 @@
 // ペアの全探索 1
 // https://algo-method.com/tasks/244
 
-// FIXME: WA
-
 // MARK: Input Functions
 
 private func readInt2() -> (Int, Int) {
@@ -28,8 +26,8 @@ precondition(aa.allSatisfy { 1 <= $0 && $0 <= 100 })
 // MARK: Main
 
 var answer = 0
-for i in 0...(N - 1) {
-    for j in (i + 1)...N where aa[i] + aa[j] <= K {
+for i in 0...(N - 2) {
+    for j in (i + 1)...(N - 1) where aa[i] + aa[j] <= K {
         answer += 1
     }
 }
