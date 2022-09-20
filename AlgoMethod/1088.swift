@@ -22,20 +22,7 @@ precondition(1 <= sb && sb <= tb && tb <= 100)
 let answer: Int
 if ta <= sb || tb <= sa {
     answer = 0
-} else if sb <= sa {
-    if ta <= tb {
-        answer = ta - sa
-    } else {
-        answer = tb - sa
-    }
-} else if sa <= sb {
-    if tb <= ta {
-        answer = tb - sb
-    } else {
-        answer = ta - sb
-    }
 } else {
-    answer = 0
+    answer = min(ta, tb) - max(sa, sb)
 }
 print(answer)
-
