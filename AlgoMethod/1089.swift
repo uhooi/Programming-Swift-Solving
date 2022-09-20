@@ -22,8 +22,5 @@ for n in 1...N {
     if n % 6 == 0 {
         answer += "Buzz"
     }
-    if n % 4 != 0 && n % 6 != 0 {
-        answer = "\(n)"
-    }
-    print(answer)
+    print(answer.isEmpty ? n : answer)
 }
