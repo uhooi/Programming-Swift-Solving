@@ -19,10 +19,4 @@ precondition(1 <= sb && sb <= tb && tb <= 100)
 
 // MARK: Main
 
-let answer: Int
-if ta <= sb || tb <= sa {
-    answer = 0
-} else {
-    answer = min(ta, tb) - max(sa, sb)
-}
-print(answer)
+print(max(0, min(ta, tb) - max(sa, sb)))
