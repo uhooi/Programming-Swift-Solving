@@ -19,5 +19,5 @@ precondition(0 <= q && q <= W - 1)
 
 // MARK: Main
 
-print((p + q + 2) % 2 == 0 ? "Black" : "White")
+print((p + q) % 2 == 0 ? "Black" : "White")
 
